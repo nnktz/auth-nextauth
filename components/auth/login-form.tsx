@@ -38,7 +38,7 @@ export const LoginForm = () => {
           if (data.success) {
             setSuccess(data.success)
           } else {
-            setSuccess(data.error)
+            setError(data.error)
           }
         }),
     )

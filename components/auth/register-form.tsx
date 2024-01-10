@@ -39,7 +39,7 @@ export const RegisterForm = () => {
           if (data.success) {
             setSuccess(data.success)
           } else {
-            setSuccess(data.error)
+            setError(data.error)
           }
         }),
     )
