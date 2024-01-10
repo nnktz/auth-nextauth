@@ -1,19 +1,7 @@
-import { signOut } from '@/auth'
+'use client'
 
 const SettingsPage = () => {
-  return (
-    <div>
-      <form
-        action={async () => {
-          'use server'
-
-          await signOut()
-        }}
-      >
-        <button type="submit">Sign out</button>
-      </form>
-    </div>
-  )
+  return <div className="rounded-xl bg-white p-10">settings page</div>
 }
 
 export default SettingsPage
