@@ -14,6 +14,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { FormError } from '../form-error'
+import { FormSuccess } from '../form-success'
 
 export const LoginForm = () => {
   const searchParams = useSearchParams()
@@ -23,6 +24,7 @@ export const LoginForm = () => {
       : ''
 
   const [error, setError] = useState<string | undefined>(undefined)
+  const [success, setSuccess] = useState<string | undefined>(undefined)
   const [isPending, startTransaction] = useTransition()
 
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -35,12 +37,15 @@ export const LoginForm = () => {
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     setError('')
+    setSuccess('')
 
     startTransaction(
       async () =>
         await login(values).then((data) => {
           if (data?.error) {
             setError(data.error)
+          } else {
+            setSuccess(data?.success)
           }
         }),
     )
@@ -91,6 +96,7 @@ export const LoginForm = () => {
           </div>
 
           <FormError message={error || urlError} />
+          <FormSuccess message={success} />
 
           <Button disabled={isPending} type="submit" className="w-full">
             Login
