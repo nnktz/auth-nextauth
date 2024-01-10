@@ -12,14 +12,14 @@ export default function Home() {
           🔐 Auth
         </h1>
         <p className="text-lg text-white">A simple authentication service</p>
-      </div>
 
-      <div>
-        <LoginButton>
-          <Button variant={'secondary'} size={'lg'}>
-            Sign in
-          </Button>
-        </LoginButton>
+        <div>
+          <LoginButton>
+            <Button variant={'secondary'} size={'lg'}>
+              Sign in
+            </Button>
+          </LoginButton>
+        </div>
       </div>
     </main>
   )
