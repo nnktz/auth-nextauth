@@ -1,6 +1,7 @@
 'use client'
 
 import * as z from 'zod'
+import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState, useTransition } from 'react'
@@ -90,6 +91,10 @@ export const LoginForm = () => {
                     <Input disabled={isPending} type="password" placeholder="********" {...field} />
                   </FormControl>
                   <FormMessage />
+
+                  <Button size={'sm'} variant={'link'} asChild className="px-0 font-normal">
+                    <Link href={'/auth/reset'}>Forgot password?</Link>
+                  </Button>
                 </FormItem>
               )}
             />
